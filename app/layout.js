@@ -34,6 +34,16 @@ const header = (
 const footer = (
   <footer className="p-4 sm:p-8 grid place-items-center">
     <p className={" text-indigo-500 " + fugaz.className}>Created by Jas</p>{" "}
+    <p className={" text-indigo-500 " + fugaz.className}>
+      <a
+        href="https://www.linkedin.com/in/jas-shah-709854233/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline hover:text-indigo-700 transition-colors duration-200"
+      >
+        LinkedIn
+      </a>{" "}
+    </p>
   </footer>
 );
 
