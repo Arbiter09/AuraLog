@@ -25,6 +25,9 @@ const header = (
     <h1 className={"text-base sm:text-lg textGradient " + fugaz.className}>
       AuraLog
     </h1>
+    <div className="flex items-center justify-between ">
+      PLACEHOLDER CTA || STATS
+    </div>
   </header>
 );
 
