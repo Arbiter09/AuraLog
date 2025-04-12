@@ -4,18 +4,18 @@ import { Fugaz_One } from "next/font/google";
 import Calender from "./Calender";
 import { useAuth } from "context/AuthContext";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "firebase";
+import { db } from "@/firebase";
 import Login from "./Login";
 import Loading from "./Loading";
 
 const fugaz = Fugaz_One({ subsets: ["latin"], weight: ["400"] });
 
 export default function Dashboard() {
-  const { currentUser, userDataObj, setUserDataObject, loading } = useAuth;
+  const { currentUser, userDataObj, setUserDataObj, loading } = useAuth();
   const [data, setData] = useState({});
 
   function countValues() {}
-
+  console.log("Current User", currentUser);
   async function handleSetMood(mood) {
     const now = new Date();
 
@@ -36,7 +36,7 @@ export default function Dashboard() {
       // update the current state
       setData(newData);
       // update the global state
-      setUserDataObject(newData);
+      setUserDataObj(newData);
       // update firebase
       const docRef = doc(db, "users", currentUser.uid);
       const res = await setDoc(
@@ -133,7 +133,7 @@ export default function Dashboard() {
           );
         })}
       </div>
-      <Calender data={data} handleSetMood={handleSetMood} />
+      <Calender completeData={data} handleSetMood={handleSetMood} />
     </div>
   );
 }

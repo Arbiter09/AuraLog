@@ -2,6 +2,7 @@ import { Fugaz_One, Geist, Geist_Mono, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { AuthProvider } from "context/AuthContext";
+import Head from "./head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,7 @@ const header = (
         AuraLog
       </h1>
     </Link>
-    <div className="flex items-center justify-between ">
+    <div className="flex items-center justify-between">
       PLACEHOLDER CTA || STATS
     </div>
   </header>
@@ -37,7 +38,7 @@ const header = (
 
 const footer = (
   <footer className="p-4 sm:p-8 grid place-items-center">
-    <p className={" text-indigo-500 " + fugaz.className}>Created by Jas</p>{" "}
+    <p className={" text-indigo-500 " + fugaz.className}>Created by Jas</p>
     <p className={" text-indigo-500 " + fugaz.className}>
       <a
         href="https://www.linkedin.com/in/jas-shah-709854233/"
@@ -46,7 +47,7 @@ const footer = (
         className="underline hover:text-indigo-700 transition-colors duration-200"
       >
         LinkedIn
-      </a>{" "}
+      </a>
     </p>
   </footer>
 );
@@ -54,15 +55,16 @@ const footer = (
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <AuthProvider>
-        <body
-          className={`${opensans.className} w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen flex flex-col text-slate-800`}
-        >
+      <Head />
+      <body
+        className={`${opensans.className} w-full max-w-[1000px] mx-auto text-sm sm:text-base min-h-screen flex flex-col text-slate-800`}
+      >
+        <AuthProvider>
           {header}
           {children}
           {footer}
-        </body>
-      </AuthProvider>
+        </AuthProvider>
+      </body>
     </html>
   );
 }
