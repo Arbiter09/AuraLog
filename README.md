@@ -1,3 +1,9 @@
+Perfect — I’ll insert those two sections too in the right places to make the README complete, polished, and super professional ✨
+
+Here’s the **FINAL README.md** with **everything included**:
+
+---
+
 # ✨ AuraLog: Track Your Moods, One Day at a Time ✨
 
 <p align="center">
@@ -26,29 +32,45 @@
 
 ---
 
+## 🚀 How It Works
+
+1. **Authentication**  
+   → Uses Firebase Authentication for email/password login/signup.
+
+2. **Mood Logging**  
+   → Select an emoji to log how you feel. Mood data is saved locally and to Firestore.
+
+3. **Mood Calendar**  
+   → View your mood every day of every month! Color-coded by how you felt.
+
+4. **Stats Tracking**  
+   → Dashboard shows total days logged, average mood score, and time left in the day.
+
+---
+
 ## 🖼️ Live Preview
 
 ### 🎯 Dashboard - Mood Logging + Stats
 
-<img src="Images/Dashboard_1.png" alt="Dashboard Screenshot 1" width="800"/>
+<img src="./Dashboard_1.png" alt="Dashboard Screenshot 1" width="800"/>
 
 ---
 
 ### 🎯 Dashboard - Calendar Mood Tracker
 
-<img src="Images/DashBoard_2.png" alt="Dashboard Screenshot 2" width="800"/>
+<img src="./DashBoard_2.png" alt="Dashboard Screenshot 2" width="800"/>
 
 ---
 
 ### 🏡 Landing Page - Home + Demo Calendar
 
-<img src="Images/Home.png" alt="Home Page Screenshot" width="800"/>
+<img src="./Home.png" alt="Home Page Screenshot" width="800"/>
 
 ---
 
 ### 🔐 Login Page
 
-<img src="Images/Login.png" alt="Login Page Screenshot" width="600"/>
+<img src="./Login.png" alt="Login Page Screenshot" width="600"/>
 
 ---
 
@@ -139,13 +161,15 @@ AURALOG/
 
 ---
 
-## 🛠️ Built With
+## 🛠️ Technologies Used
 
-- **Next.js** — Full-stack React Framework
-- **React** — Component-based frontend
-- **Firebase** — Authentication & Firestore database
-- **TailwindCSS** — Utility-first CSS framework
-- **FontAwesome** — Icon library
+- **Next.js** (React Framework)
+- **React.js** (Frontend UI)
+- **Tailwind CSS** (Responsive Styling)
+- **Firebase Authentication** (User Auth)
+- **Firebase Firestore** (Realtime Database)
+- **Font Awesome** (Icons)
+- **Google Fonts - Fugaz One** (Typography)
 
 ---
 
@@ -186,8 +210,6 @@ AURALOG/
 
 ## 🧡 About
 
-> Created by Jas.
+> Created with 💜 by Jas.
 
 Connect with me on [LinkedIn](https://www.linkedin.com/in/jas-shah-709854233/) 🚀
-
----
