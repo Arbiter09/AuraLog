@@ -52,25 +52,25 @@ Here’s the **FINAL README.md** with **everything included**:
 
 ### 🎯 Dashboard - Mood Logging + Stats
 
-<img src="./Dashboard_1.png" alt="Dashboard Screenshot 1" width="800"/>
+<img src="Images/Dashboard_1.png" alt="Dashboard Screenshot 1" width="800"/>
 
 ---
 
 ### 🎯 Dashboard - Calendar Mood Tracker
 
-<img src="./DashBoard_2.png" alt="Dashboard Screenshot 2" width="800"/>
+<img src="Images/DashBoard_2.png" alt="Dashboard Screenshot 2" width="800"/>
 
 ---
 
 ### 🏡 Landing Page - Home + Demo Calendar
 
-<img src="./Home.png" alt="Home Page Screenshot" width="800"/>
+<img src="Images/Home.png" alt="Home Page Screenshot" width="800"/>
 
 ---
 
 ### 🔐 Login Page
 
-<img src="./Login.png" alt="Login Page Screenshot" width="600"/>
+<img src="Images/Login.png" alt="Login Page Screenshot" width="600"/>
 
 ---
 
