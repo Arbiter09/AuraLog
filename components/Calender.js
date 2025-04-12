@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { Fugaz_One } from "next/font/google";
 import { gradients, baseRating, demoData } from "utils";
 
@@ -31,14 +32,33 @@ const dayList = [
 const fugaz = Fugaz_One({ subsets: ["latin"], weight: ["400"] });
 
 export default function Calender(props) {
-  const { demo } = props;
-  const year = 2025;
-  const month = "April";
-  const monthNow = new Date(year, Object.keys(months).indexOf(month), 1);
+  const { demo, data, handleSetMood } = props;
+
+  const now = new Date();
+
+  const currMonth = now.getMonth();
+  const [selectedMonth, setSelectedMonth] = useState(
+    Object.keys(months)[currMonth]
+  );
+
+  const [selectedYear, setSelectedYear] = useState(now.getFullYear());
+
+  function handleIncrementMonth(val) {
+    // value +1 -1
+    // if we hit the bounds of the months , then we can just adjust the year that is displayed
+  }
+
+  // const year = 2025;
+  // const month = "April";
+  const monthNow = new Date(
+    selectedYear,
+    Object.keys(months).indexOf(selectedMonth),
+    1
+  );
   const firstDayOfMonth = monthNow.getDay();
   const daysInMonth = new Date(
-    year,
-    Object.keys(months).indexOf(month) + 1,
+    selectedYear,
+    Object.keys(months).indexOf(selectedMonth) + 1,
     0
   ).getDate();
 
