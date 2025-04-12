@@ -18,7 +18,6 @@ const months = {
   December: "Dec",
 };
 const monthsArr = Object.keys(months);
-const now = new Date();
 const dayList = [
   "Sunday",
   "Monday",
@@ -37,18 +36,27 @@ export default function Calender(props) {
   const now = new Date();
 
   const currMonth = now.getMonth();
-  const [selectedMonth, setSelectedMonth] = useState(
-    Object.keys(months)[currMonth]
-  );
+  const [selectedMonth, setSelectedMonth] = useState(monthsArr[currMonth]);
 
   const [selectedYear, setSelectedYear] = useState(now.getFullYear());
 
-  const numericMonth = Object.keys(months).indexOf(selectedMonth);
+  const numericMonth = monthsArr.indexOf(selectedMonth);
   const data = completeData?.[selectedYear]?.[numericMonth] || {};
 
   function handleIncrementMonth(val) {
     // value +1 -1
     // if we hit the bounds of the months , then we can just adjust the year that is displayed
+    if (numericMonth + val < 0) {
+      // set the month value = 11 and decrement the year
+      setSelectedYear((curr) => curr - 1);
+      setSelectedMonth(monthsArr[monthsArr.length - 1]);
+    } else if (numericMonth + val > 11) {
+      // set month value = 0 and increment the year
+      setSelectedYear((curr) => curr + 1);
+      setSelectedMonth(monthsArr[0]);
+    } else {
+      setSelectedMonth(monthsArr[numericMonth + val]);
+    }
   }
 
   // const year = 2025;
@@ -69,48 +77,78 @@ export default function Calender(props) {
   const numRows = Math.floor(daysToDisplay / 7) + (daysToDisplay % 7 ? 1 : 0);
 
   return (
-    <div className="flex flex-col overflow-hidden gap-1 py-4 sm:py-6 md:py-10">
-      {[...Array(numRows).keys()].map((row, rowIndex) => {
-        return (
-          <div key={rowIndex} className="grid grid-cols-7 gap-1">
-            {dayList.map((dayOfWeek, dayOfWeekIndex) => {
-              let dayIndex =
-                rowIndex * 7 + dayOfWeekIndex - (firstDayOfMonth - 1);
-              let dayDisplay =
-                dayIndex > daysInMonth
-                  ? false
-                  : row === 0 && dayOfWeekIndex < firstDayOfMonth
-                  ? false
-                  : true;
+    <div className="flex flex-col gap-2">
+      <div className="grid grid-cols-5 gap-4">
+        <button
+          onClick={() => {
+            handleIncrementMonth(-1);
+          }}
+          className="mr-auto text-indigo-400 text-lg sm:text-xl duration-200 hover:opacity-60 cursor-pointer "
+        >
+          <i className="fa-solid fa-circle-chevron-left"></i>
+        </button>
+        <p
+          className={
+            "text-center col-span-3 capitalized whitespace-nowrap textGradient " +
+            fugaz.className
+          }
+        >
+          {selectedMonth}, {selectedYear}
+        </p>
+        <button
+          onClick={() => {
+            handleIncrementMonth(+1);
+          }}
+          className="ml-auto text-indigo-400 text-lg sm:text-xl duration-200 hover:opacity-60 cursor-pointer "
+        >
+          <i className="fa-solid fa-circle-chevron-right"></i>
+        </button>
+      </div>
+      <div className="flex flex-col overflow-hidden gap-1 py-4 sm:py-6 md:py-10">
+        {[...Array(numRows).keys()].map((row, rowIndex) => {
+          return (
+            <div key={rowIndex} className="grid grid-cols-7 gap-1">
+              {dayList.map((dayOfWeek, dayOfWeekIndex) => {
+                let dayIndex =
+                  rowIndex * 7 + dayOfWeekIndex - (firstDayOfMonth - 1);
+                let dayDisplay =
+                  dayIndex > daysInMonth
+                    ? false
+                    : row === 0 && dayOfWeekIndex < firstDayOfMonth
+                    ? false
+                    : true;
 
-              let isToday = dayIndex === now.getDate();
-              if (!dayDisplay) {
-                return <div className="bg-white" key={dayOfWeekIndex} />;
-              }
+                let isToday = dayIndex === now.getDate();
+                if (!dayDisplay) {
+                  return <div className="bg-white" key={dayOfWeekIndex} />;
+                }
 
-              let color = demo
-                ? gradients.indigo[baseRating[dayIndex]]
-                : dayIndex in data
-                ? gradients.indigo[data[dayIndex]]
-                : "white";
+                let color = demo
+                  ? gradients.indigo[baseRating[dayIndex]]
+                  : dayIndex in data
+                  ? gradients.indigo[data[dayIndex]]
+                  : "white";
 
-              return (
-                <div
-                  style={{ background: color }}
-                  key={dayOfWeekIndex}
-                  className={
-                    "text-xs sm:text-sm border border-solid p-2 flex items-center gap-2 justify-between rounded-lg " +
-                    (isToday ? " border-indigo-400 " : " border-indigo-100 ") +
-                    (color === "white" ? " text-indigo-400" : " text-white ")
-                  }
-                >
-                  {dayIndex}
-                </div>
-              );
-            })}
-          </div>
-        );
-      })}
+                return (
+                  <div
+                    style={{ background: color }}
+                    key={dayOfWeekIndex}
+                    className={
+                      "text-xs sm:text-sm border border-solid p-2 flex items-center gap-2 justify-between rounded-lg " +
+                      (isToday
+                        ? " border-indigo-400 "
+                        : " border-indigo-100 ") +
+                      (color === "white" ? " text-indigo-400" : " text-white ")
+                    }
+                  >
+                    {dayIndex}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
