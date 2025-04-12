@@ -188,6 +188,6 @@ AURALOG/
 
 > Created by Jas.
 
-Connect with me on [LinkedIn](https://www.linkedin.com/) 🚀
+Connect with me on [LinkedIn](https://www.linkedin.com/in/jas-shah-709854233/) 🚀
 
 ---
