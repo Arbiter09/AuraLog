@@ -6,7 +6,7 @@ import {
   signOut,
 } from "firebase/auth";
 import React, { useContext, useState, useEffect } from "react";
-import { auth, db } from "firebase";
+import { auth, db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 
 const AuthContext = React.createContext();
