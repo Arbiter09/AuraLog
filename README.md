@@ -14,6 +14,16 @@
 
 ---
 
+## 🧪 Live Demo
+
+Curious to try it out before cloning?
+
+👉 **[Check out the live app here](https://wondrous-gaufre-8af8d3.netlify.app/)**
+No sign-up needed to explore — just use the **Demo Mode Calendar** on the home page!
+
+---
+
+
 ## ✨ Features
 
 - 🔐 **User Authentication** (Sign Up, Log In, Log Out)
